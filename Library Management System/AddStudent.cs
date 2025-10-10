@@ -49,7 +49,7 @@ namespace Library_Management_System
             string sem = txtSemester.Text;
             string email = txtEmail.Text;
 
-           
+
             if (!Int64.TryParse(txtContact.Text, out Int64 mobile) || txtContact.Text.Length != 10)
             {
                 MessageBox.Show("Contact number must be exactly 10 digits!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -82,7 +82,7 @@ namespace Library_Management_System
                         con.Close();
 
                         MessageBox.Show("Data Saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        btnRefresh_Click(sender, e); 
+                        btnRefresh_Click(sender, e);
                     }
                 }
             }
@@ -92,4 +92,4 @@ namespace Library_Management_System
             }
         }
     }
-    }
+}
