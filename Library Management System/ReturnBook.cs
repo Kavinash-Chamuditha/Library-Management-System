@@ -141,20 +141,20 @@ namespace Library_Management_System
             {
                 con.Open();
 
-               
+
                 SqlCommand qtyCmd = new SqlCommand("SELECT bQuan FROM NewBook WHERE bName=@bname", con);
                 qtyCmd.Parameters.AddWithValue("@bname", bname);
                 int totalQty = Convert.ToInt32(qtyCmd.ExecuteScalar());
 
-                
+
                 SqlCommand issuedCmd = new SqlCommand("SELECT COUNT(*) FROM IRBook WHERE bname=@bname AND book_returndate IS NULL", con);
                 issuedCmd.Parameters.AddWithValue("@bname", bname);
                 int issuedCount = Convert.ToInt32(issuedCmd.ExecuteScalar());
 
-                
+
                 string available = (totalQty - issuedCount > 0) ? "Yes" : "No";
 
-                
+
                 SqlCommand updateCmd = new SqlCommand("UPDATE NewBook SET Available=@available WHERE bName=@bname", con);
                 updateCmd.Parameters.AddWithValue("@available", available);
                 updateCmd.Parameters.AddWithValue("@bname", bname);
